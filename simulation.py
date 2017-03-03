@@ -109,13 +109,16 @@ if __name__ == '__main__':
     plt.plot(t, ss_deviant_test.mean(0), label='deviant_test (mean)')
     plt.title("One trial and Evoked Potentials (averages)")
     plt.legend()
+    plt.savefig("trials.pdf")
 
     plt.figure()
     t_plot = t[window_size_tp / 2:-window_size_tp / 2]
     plt.plot(t_plot, accuracy_standard_vs_deviant)
     plt.title("Decoding accuracy of standard vs deviant across time")
+    plt.savefig("accuracy_standard_vs_deviant.pdf")
 
     plt.figure()
     plt.imshow(accuracy_deviant, interpolation='nearest', origin='lower')
     plt.colorbar()
     plt.title("Cross-decoding accuracy of deviant_test across time")
+    plt.savefig("accuracy_deviant_test.pdf")
