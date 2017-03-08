@@ -30,7 +30,8 @@ if __name__ == '__main__':
     sampling_frequency = 250  # Hz
     amplitude_standard = 100
     amplitude_deviant = 150
-    t_peak = 250  # ms
+    t_peak_standard = 250  # ms
+    t_peak_deviant = 250  # ms
     t_sigma = 60  # ms
     noise_level = 100
     n_trial_standard = 50
@@ -44,7 +45,7 @@ if __name__ == '__main__':
                  trial_tmin=trial_tmin,
                  trial_tmax=trial_tmax,
                  sampling_frequency=sampling_frequency,
-                 t_peak=t_peak,
+                 t_peak=t_peak_standard,
                  t_sigma=t_sigma,
                  noise_level=noise_level,
                  return_time=True)  # generate 1 trial
@@ -54,7 +55,7 @@ if __name__ == '__main__':
                                   trial_tmin=trial_tmin,
                                   trial_tmax=trial_tmax,
                                   sampling_frequency=sampling_frequency,
-                                  t_peak=t_peak,
+                                  t_peak=t_peak_standard,
                                   t_sigma=t_sigma,
                                   noise_level=noise_level) for i in range(n_trial_standard)])
 
@@ -63,7 +64,7 @@ if __name__ == '__main__':
                                  trial_tmin=trial_tmin,
                                  trial_tmax=trial_tmax,
                                  sampling_frequency=sampling_frequency,
-                                 t_peak=t_peak,
+                                 t_peak=t_peak_deviant,
                                  t_sigma=t_sigma,
                                  noise_level=noise_level) for i in range(n_trial_deviant)])
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
                                       trial_tmin=trial_tmin,
                                       trial_tmax=trial_tmax,
                                       sampling_frequency=sampling_frequency,
-                                      t_peak=t_peak,
+                                      t_peak=t_peak_deviant,
                                       t_sigma=t_sigma,
                                       noise_level=noise_level) for i in range(n_trial_deviant_test)])
 
@@ -108,7 +109,7 @@ if __name__ == '__main__':
     plt.plot(t, ss_deviant.mean(0), label='deviant (mean)')
     plt.plot(t, ss_deviant_test.mean(0), label='deviant_test (mean)')
     plt.title("One trial and Evoked Potentials (averages)")
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.savefig("trials.pdf")
 
     plt.figure()
